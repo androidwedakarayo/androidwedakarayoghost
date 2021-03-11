@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}" data-theme="light">
+<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{!-- Fonts => Roboto && Merriweather --}}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet">
+    {{!-- Styles --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}"/>
+
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
+
+    <script>
+        if (typeof(Storage) !== 'undefined') {
+            var selectTheme = localStorage.getItem('selected-theme');
+            if (selectTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else if (selectTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+    </script>
+</head>
+<body class="{{{block "mapache_class_body"}}}">
+
+    <div class="site-wrapper u-flexColumnTop">
+
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        <main class="site-main {{{block "mapache_class_site_main"}}}">{{{body}}}</main>
+
+
+        {{!-- Footer Content --}}
+        {{>"footer"}}
+    </div>
+
+    {{!-- Search box --}}
+    {{>"search"}}
+
+
+
+    {{!-- Return home top page scroll --}}
+    <div class="back-to-top js-back-to-top u-hide-before-lg u-flexCenter justify-content-center u-fontSize40">
+        <svg class="icon icon--arrow-up"><use xlink:href="#icon-arrow-round"></use></svg>
+    </div>
+
+
+    {{!-- Site URL --}}
+    <script>
+        var siteUrl = '{{@site.url}}';
+        var siteSearch = '{{asset "scripts/search.js"}}';
+        var sitePrismJs = '{{asset "scripts/prismjs.js"}}';
+        var sitePrismJscomponents = '/assets/scripts/components/';
+    </script>
+
+
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+
+    {{!-- The main JavaScript --}}
+    <script src="{{asset "scripts/main.js"}}"></script>
+
+<script
+        src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-backpack.js"></script>
+    <script>
+        new SearchinGhostEasy({
+            contentApiKey: 'fdaf9fe0b5f7ca25d9a57d44b9',
+            searchinghostOptions: {
+                postsFields: ['title', 'url', 'published_at', 'feature_image'],
+                postsExtraFields: ['tags'],
+                postsFormats: [],
+                indexedFields: ['title', 'string_tags'],
+                template: function (post) {
+                    var o = `<a href="${post.url}">`
+                    if (post.feature_image) o += `<img src="https://res.cloudinary.com/androidwedakarayo/image/fetch/w_281,h_160,c_fit,f_auto/${post.feature_image}?tr=h-160,w-281">`
+                    o += '<section>'
+                    if (post.tags.length > 0) {
+                        o += `<header>
+                        <span class="head-tags">${post.tags[0].name}</span>
+                        <span class="head-date">${post.published_at}</span>
+                    </header>`
+                    } else {
+                        o += `<header>
+                        <span class="head-tags">UNKNOWN</span>
+                        <span class="head-date">${post.published_at}</span>
+                    </header>`
+                    }
+                    o += `<h2>${post.title}</h2>`
+                    o += `</section></a>`
+                    return o;
+                },
+                indexOptions: {
+                    split: /\s+/,
+                    encode: function (str) {
+                        var regexp_replacements = {
+                            "a": /[àáâãäå]/g,
+                            "e": /[èéêë]/g,
+                            "i": /[ìíîï]/g,
+                            "o": /[òóôõöő]/g,
+                            "u": /[ùúûüű]/g,
+                            "y": /[ýŷÿ]/g,
+                            "n": /ñ/g,
+                            "c": /[ç]/g,
+                            "s": /ß/g,
+                            " ": /[-/]/g,
+                            "": /['!"#$%&\\()\*+,-./:;<=>?@[\]^_`{|}~]/g,
+                            " ": /\s+/g,
+                        }
+                        str = str.toLowerCase();
+                        for (var key of Object.keys(regexp_replacements)) {
+                            str = str.replace(regexp_replacements[key], key);
+                        }
+                        return str === " " ? "" : str;
+                    }
+                }
+            }
+        });
+    </script>
+    {{!-- The #block helper will pull in data from the #contentFor other template files. --}}
+    {{{block "scripts"}}}
+</body>
+</html>

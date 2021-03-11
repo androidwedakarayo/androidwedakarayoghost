@@ -1,0 +1,215 @@
+/*! ghost-easybar v0.1.6 (https://github.com/gmfmi/ghostbar#readme), license MIT */
+.easybar-overlay {
+    all: initial;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+:root {
+    --light-grey: #d8dee3;
+    --grey: #aeb4b9;
+    --medium-grey: #868b8f;
+    --heavy-grey: #3f3f3f;
+    --background-alt: #fff;
+    --background-main: #fafafa;
+    --borders: #f0f0f0;
+}
+.easybar-overlay {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: var(--background-main);
+    font-family: "Arial", "sans-serif";
+}
+#easybar-close {
+    z-index: 100;
+    position: absolute;
+    top: 1em;
+    right: 1.5em;
+    width: 1.3em;
+    height: 1.3em;
+    padding: 0.5em;
+    cursor: pointer;
+    fill: var(--light-grey);
+    transition: all 0.3s ease;
+}
+#easybar-close:hover,
+.easybar-search-button:hover {
+    fill: var(--medium-grey);
+}
+@media screen and (max-width: 950px) {
+    #easybar-close {
+        width: 1.2em;
+        height: 1.2em;
+        top: 5px;
+        right: 6px;
+    }
+}
+@media screen and (max-width: 568px) {
+    #easybar-close {
+        width: 1em;
+        height: 1em;
+        top: 5px;
+        right: 6px;
+    }
+}
+.easybar-search-bar-container {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid var(--borders);
+    background-color: var(--background-alt);
+    overflow: hidden;
+}
+.easybar-search-bar-wrapper {
+    max-width: 700px;
+    margin: 1.5em auto;
+    padding: 0 1em;
+}
+@media screen and (max-width: 950px) {
+    .easybar-search-bar-wrapper {
+        margin: 2.5em auto 1.5em;
+    }
+}
+.easybar-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    border-bottom: 1px solid var(--light-grey);
+}
+#easybar-input {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100px;
+    border: 0;
+    font-size: 2em;
+    line-height: 1.5em;
+    color: var(--heavy-grey);
+    font-weight: 200;
+    background-color: transparent;
+}
+#easybar-input:focus {
+    outline: 0;
+}
+#easybar-input::placeholder {
+    color: var(--light-grey);
+    opacity: 1;
+    font-weight: 200;
+}
+#easybar-input::-webkit-input-placeholder {
+    color: var(--light-grey);
+    opacity: 1;
+    font-weight: 200;
+}
+#easybar-input::-moz-placeholder {
+    color: var(--light-grey);
+    opacity: 1;
+    font-weight: 200;
+}
+.easybar-search-button {
+    flex-grow: 0;
+    position: relative;
+    width: 3.5em;
+    padding: 2px;
+    right: 0;
+    bottom: -0.2em;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    fill: var(--light-grey);
+    transition: all 0.3s ease;
+}
+#easybar-items-found-counter {
+    margin: 0.9em 0 0;
+    height: 0.9em;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 0.9em;
+    color: var(--medium-grey);
+}
+#easybar-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    max-width: 900px;
+}
+@media screen and (max-width: 950px) {
+    #easybar-results {
+        padding: 0.5em 2em;
+    }
+}
+@media screen and (max-width: 568px) {
+    #easybar-results {
+        padding: 0.5em 0;
+    }
+}
+.easybar-results-item {
+    flex-basis: calc(33% - (2 * 0.5em));
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0.5em;
+    border-radius: 5px;
+    background-color: var(--background-alt);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.3s ease;
+}
+@media screen and (max-width: 950px) {
+    .easybar-results-item {
+        flex-basis: calc(50% - (2 * 0.5em) - 2px);
+    }
+}
+@media screen and (max-width: 568px) {
+    .easybar-results-item {
+        flex-basis: 100%;
+        margin: 0.5em 1em;
+    }
+}
+.easybar-results-item:hover {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.12), 1px 2px 7px rgba(0, 0, 0, 0.08);
+}
+.easybar-results-item:hover img {
+    filter: brightness(110%);
+}
+.easybar-results-item > a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.easybar-results-item img {
+    width: 100%;
+    height: 10em;
+    object-fit: cover;
+    filter: brightness(1);
+    transition: filter 0.3s ease;
+}
+.easybar-results-item section {
+    padding: 0.8em 0.8em 0.7em;
+}
+.easybar-results-item header {
+    font-size: 0.65em;
+    color: var(--grey);
+    text-transform: uppercase;
+}
+.easybar-results-item .head-tags {
+    border: 1px solid var(--grey);
+    border-radius: 3px;
+    padding: 2.8px 4px 1px 5px;
+}
+.easybar-results-item .head-date {
+    margin-left: 0.5em;
+}
+.easybar-results-item h2 {
+    color: var(--heavy-grey);
+    margin: 0.3em 0;
+    font-size: 1.25em;
+    font-weight: 300;
+    line-height: 1.3em;
+}

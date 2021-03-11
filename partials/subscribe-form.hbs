@@ -1,0 +1,19 @@
+<section class="subscribe-form">
+    <h3 class="subscribe-form-title">{{@site.title}} Newsletter එකට සෙට් වෙන්න</h3>
+    <p class="subscribe-form-description">අප මේ වගේ අළුත්ම තාක්ෂණික තොරතුරු පල කරපු සැනින් ගෙන්න ගන්න</p>
+    <form data-members-form="subscribe">
+        <div class="form-group">
+            <input class="subscribe-email" data-members-email placeholder="youremail@example.com" autocomplete="false" />
+            <button class="button primary" type="submit">
+                <span class="button-content">Subscribe</span>
+                <span class="button-loader">{{> "icons/loader"}}</span>
+            </button>
+        </div>
+        <div class="message-success">
+            <strong>නියමයි!</strong> ඔයාගේ ඊමේල් එක චෙක් කරන්න. ඒකට ආපු ලින්ක් එකෙන් ඔයාගේ subscription එක confirm කරන්න.
+        </div>
+        <div class="message-error">
+            හරි ඊමේල් එක දෙන්න වෙනවා, මේක වැරදි එකක්!
+        </div>
+    </form>
+</section>

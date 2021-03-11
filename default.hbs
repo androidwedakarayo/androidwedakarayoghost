@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/aps-css.css"}}" />
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+
+<body class="{{body_class}}">
+
+{{!-- 
+    <div class="patreon-banner">
+        <div
+            style="position: absolute; display: none; top: -5px; right: -5px; width: 16px; line-height: 16px; text-align: center; cursor: pointer; text-decoration: none; color: rgb(0, 0, 0); font-size: 20px; font-family: Arial, sans-serif; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5);">
+            ×</div>
+        <div class="patreon-image">
+            <a href="https://patreon.com/androidwedakarayo" target="_blank">
+                <img alt="patreon"
+                    src="https://ik.imagekit.io/androidwedakarayo/assets/images/Patreon-Button.png?tr=h-35,w-128"
+                    class="patreon-image-src">
+            </a>
+        </div>
+    </div>
+    --}}
+    <div class="site-wrapper">
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+
+        {{{body}}}
+
+        {{!-- The footer at the very bottom of the screen --}}
+
+
+    </div>
+
+
+    <div class="sc-iRbamj iijtug" id="appFooter">
+        <div class="container">
+            <div class="leftSection">
+                <div><img src="/assets/images/logo.svg" height="40" alt="logo"></div>
+                <p>Android වැඩකාරයෝ is to bring the latest tech news in the Sinhala language, and respects user
+                    contributions by letting anyone to contribute and update latest news.</p>
+                <div class="socialLinks">
+                    <a href="https://www.facebook.com/androidwedakarayo/" target="_blank" style="color: #f5f5f5;">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="https://twitter.com/androidwdlka" target="_blank" style="color: #f5f5f5;">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/androidwedakarayo/" target="_blank" style="color: #f5f5f5;">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCBYFBHWwOwXZlgRvwtmc1qw" target="_blank"
+                        style="color: #f5f5f5;">
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/android-%e0%b7%80-%e0%b6%a9%e0%b6%9a-%e0%b6%bb%e0%b6%ba/id1512647468"
+                        style="color: #f5f5f5;">
+                        <i class="fas fa-podcast fa-lg"></i>
+                    </a>
+                    <a href="https://open.spotify.com/show/3mLVk0itdRn2yZ3FFFmyok" style="color: #f5f5f5;">
+                        <i class="fab fa-spotify fa-lg"></i>
+                    </a>
+                    <a href="https://github.com/androidwedakarayo" target="_blank" style="color: #f5f5f5;">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.gavnyx.androidwedakarayo" target="_blank"
+                        style="color: #f5f5f5;">
+                        <i class="fab fa-google-play fa-lg"></i>
+                    </a>
+                    <a href="" target="_blank" style="color: #f5f5f5;">
+                        <i class="fab fa-app-store fa-lg"></i>
+                    </a>
+                    <a href="https://androidwedakarayo.com/rss" target="_blank" style="color: #f5f5f5;">
+                        <i class="fas fa-rss fa-lg"></i>
+                    </a>
+                </div>
+                <div class="copyright">
+                    <p>Copyright © 2021 Android වැඩකාරයෝ by Android Wedakarayo (Private) Limited. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+            <div class="rightSection">
+                <div class="links">
+                    <div class="linkSection">
+                        <div><a target="blank" href="/about-us/">About Us</a></div>
+                        <div><a target="blank" href="mailto:contact@androidwedakarayo.com">Contact Us</a></div>
+                        <div><a target="blank" href="/writers/">Meet the team</a></div>
+                        <div><a target="blank" href="/categories/">Categories</a></div>
+                    </div>
+                    <div class="linkSection">
+                        <div><a target="blank" href="/podcast/">Podcast</a></div>
+                        <div><a target="blank" href="/privacy-policy/">Privacy Policy</a></div>
+                        <div><a target="blank" href="/correction-policy/">Correction Policy</a></div>
+                        <div><a target="blank" href="/fact-checking-policy/">Fact Checking Policy</a></div>
+                        <div><a target="blank" href="/advertising-policy/">Advertising  Policy</a></div>
+                        <div><a target="blank" href="/ethics-policy/">Ethics Policy</a></div>
+                        <div><a target="blank" href="/terms/">Terms</a></div>
+                    </div>
+                </div>
+                <div class="contact">
+                    {{#if @labs.members}}
+                    <h5>Sign up for our newsletter!</h5>
+                    <p>Join our mailing list and get the latest updates</p>
+
+                    <a class="subscribe-button" href="#subscribe">Subscribe</a>
+                    <br />
+                    {{/if}}
+                    <h5>Email us for general inquiries and copyright information</h5>
+                    <a href="mailto:contact@androidwedakarayo.com" target="_top">contact@androidwedakarayo.com</a>
+                    <p></p>
+                    <a href="//www.dmca.com/Protection/Status.aspx?ID=63e61e66-6871-4473-9b20-f76237385cf4"
+                        title="DMCA.com Protection Status" class="dmca-badge"> <img
+                            src="https://images.dmca.com/Badges/_dmca_premi_badge_5.png?ID=63e61e66-6871-4473-9b20-f76237385cf4"
+                            alt="DMCA.com Protection Status" /></a>
+                    <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+                    <p></p>
+                    <p>Made with
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="width:16px;overflow:visible">
+                            <path class="breathing"
+                                d="M24.85 10.126c2.018-4.783 6.628-8.125 11.99-8.125 7.223 0 12.425 6.179 13.079 13.543 0 0 .353 1.828-.424 5.119-1.058 4.482-3.545 8.464-6.898 11.503L24.85 48 7.402 32.165c-3.353-3.038-5.84-7.021-6.898-11.503-.777-3.291-.424-5.119-.424-5.119C.734 8.179 5.936 2 13.159 2c5.363 0 9.673 3.343 11.691 8.126z"
+                                fill="#d75a4a"></path>
+                        </svg>
+
+                        in Sri Lanka
+                    </p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {{!-- The big email subscribe modal content --}}
+    {{#if @labs.members}}
+    <div class="subscribe-success-message">
+        <a class="subscribe-close" href="javascript:;"></a>
+        You've successfully subscribed to {{@site.title}}!
+    </div>
+
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-close-overlay" href="#"></a>
+        <a class="subscribe-close-button" href="#"></a>
+        <div class="subscribe-overlay-content">
+            {{#if @site.logo}}
+            <img class="subscribe-overlay-logo" src="{{@site.logo}}" alt="{{@site.title}}" />
+            {{/if}}
+            <div class="subscribe-form">
+                <h1 class="subscribe-overlay-title">Subscribe to {{@site.title}}</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest & greatest posts delivered
+                    straight to your inbox</p>
+                <form data-members-form="subscribe">
+                    <div class="form-group">
+                        <input class="subscribe-email" data-members-email placeholder="youremail@example.com"
+                            autocomplete="false" />
+                        <button class="button primary" type="submit">
+                            <span class="button-content">Subscribe</span>
+                            <span class="button-loader">{{> "icons/loader"}}</span>
+                        </button>
+                    </div>
+                    <div class="message-success">
+                        <strong>Great!</strong> Check your inbox and click the link to confirm your subscription.
+                    </div>
+                    <div class="message-error">
+                        Please enter a valid email address!
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{!-- jQuery, required for fitvids --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+    {{!-- Fitvids (for responsive video embeds), infinite scroll, floating header, and gallery card support --}}
+    <script src="{{asset "built/casper.js"}}"></script>
+    <script src="{{asset "js/embla.js"}}"></script>
+
+    {{!-- Scripts for Members subscription --}}
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function () {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>$(document).ready(function () { var nav = document.querySelector('.site-nav-main .site-nav'); var feed = document.querySelector('.posts'); var lastScrollY = window.scrollY; var lastWindowHeight = window.innerHeight; var lastDocumentHeight = $(document).height(); var ticking = false; function onScroll() { lastScrollY = window.scrollY; requestTick(); } function onResize() { lastWindowHeight = window.innerHeight; lastDocumentHeight = $(document).height(); requestTick(); } function requestTick() { if (!ticking) { requestAnimationFrame(update); } ticking = true; } function update() { var trigger = feed.getBoundingClientRect().top + window.scrollY; var progressMax = lastDocumentHeight - lastWindowHeight; if (lastScrollY >= trigger - 20) { nav.classList.add('fixed-nav-active'); } else { nav.classList.remove('fixed-nav-active'); } ticking = false; } window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onResize, false); update(); const setupPrevNextBtns = (prevBtn, nextBtn, embla) => { prevBtn.addEventListener("click", embla.scrollPrev, false); nextBtn.addEventListener("click", embla.scrollNext, false); }; const disablePrevNextBtns = (prevBtn, nextBtn, embla) => { return () => { if (embla.canScrollPrev()) prevBtn.removeAttribute("disabled"); else prevBtn.setAttribute("disabled", "disabled"); if (embla.canScrollNext()) nextBtn.removeAttribute("disabled"); else nextBtn.setAttribute("disabled", "disabled"); }; }; const setupDotBtns = (dotsArray, embla) => { dotsArray.forEach((dotNode, i) => { dotNode.classList.add('embla__dot'); dotNode.addEventListener('click', () => embla.scrollTo(i), false); }); }; const generateDotBtns = (dots, embla) => { const scrollSnaps = embla.scrollSnapList(); const dotsFrag = document.createDocumentFragment(); const dotsArray = scrollSnaps.map(() => document.createElement('button')); dotsArray.forEach(dotNode => dotsFrag.appendChild(dotNode)); dots.appendChild(dotsFrag); return dotsArray; }; const selectDotBtn = (dotsArray, embla) => () => { const previous = embla.previousScrollSnap(); const selected = embla.selectedScrollSnap(); dotsArray[previous].classList.remove('is-selected'); dotsArray[selected].classList.add('is-selected'); }; const wrap = document.querySelector(".embla"); const viewPort = wrap.querySelector(".embla__viewport"); const prevBtn = wrap.querySelector(".embla__button--prev"); const nextBtn = wrap.querySelector(".embla__button--next"); const dots = wrap.querySelector(".embla__dots"); const radioButtons = document.querySelectorAll(".radio__input"); const radioButtonsArray = [].slice.call(radioButtons); const embla = EmblaCarousel(viewPort, { loop: true }); const dotsArray = generateDotBtns(dots, embla); const setSelectedDotBtn = selectDotBtn(dotsArray, embla); const disablePrevAndNextBtns = disablePrevNextBtns(prevBtn, nextBtn, embla); setupPrevNextBtns(prevBtn, nextBtn, embla); setupDotBtns(dotsArray, embla); embla.on("select", setSelectedDotBtn); embla.on("select", disablePrevAndNextBtns); embla.on("init", setSelectedDotBtn); embla.on("init", disablePrevAndNextBtns); });</script>
+
+
+
+
+
+    <script
+        src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-backpack.js"></script>
+    <script>
+        new SearchinGhostEasy({
+            contentApiKey: 'fdaf9fe0b5f7ca25d9a57d44b9',
+            searchinghostOptions: {
+                postsFields: ['title', 'url', 'published_at', 'feature_image'],
+                postsExtraFields: ['tags'],
+                postsFormats: [],
+                indexedFields: ['title', 'string_tags'],
+                template: function (post) {
+                    var o = `<a href="${post.url}">`
+                    if (post.feature_image) o += `<img src="https://res.cloudinary.com/androidwedakarayo/image/fetch/w_281,h_160,c_fit,f_auto/${post.feature_image}?tr=h-160,w-281">`
+                    o += '<section>'
+                    if (post.tags.length > 0) {
+                        o += `<header>
+                        <span class="head-tags">${post.tags[0].name}</span>
+                        <span class="head-date">${post.published_at}</span>
+                    </header>`
+                    } else {
+                        o += `<header>
+                        <span class="head-tags">UNKNOWN</span>
+                        <span class="head-date">${post.published_at}</span>
+                    </header>`
+                    }
+                    o += `<h2>${post.title}</h2>`
+                    o += `</section></a>`
+                    return o;
+                },
+                indexOptions: {
+                    split: /\s+/,
+                    encode: function (str) {
+                        var regexp_replacements = {
+                            "a": /[àáâãäå]/g,
+                            "e": /[èéêë]/g,
+                            "i": /[ìíîï]/g,
+                            "o": /[òóôõöő]/g,
+                            "u": /[ùúûüű]/g,
+                            "y": /[ýŷÿ]/g,
+                            "n": /ñ/g,
+                            "c": /[ç]/g,
+                            "s": /ß/g,
+                            " ": /[-/]/g,
+                            "": /['!"#$%&\\()\*+,-./:;<=>?@[\]^_`{|}~]/g,
+                            " ": /\s+/g,
+                        }
+                        str = str.toLowerCase();
+                        for (var key of Object.keys(regexp_replacements)) {
+                            str = str.replace(regexp_replacements[key], key);
+                        }
+                        return str === " " ? "" : str;
+                    }
+                }
+            }
+        });
+    </script>
+
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+</body>
+
+</html>

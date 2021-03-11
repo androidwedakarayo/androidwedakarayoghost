@@ -1,0 +1,86 @@
+{{!-- Layout --}}
+{{!< defaultvideo }}
+
+<header class="site-header outer border-primary-top">
+    <div class="inner-header">
+        <nav class="site-nav">
+            <div class="site-nav-left">
+                <a class="site-nav-logo" href="{{@site.url}}" aria-label="{{@site.title}}">
+                    <img src="{{@site.logo}}">
+                </a>
+            </div>
+            <div class="inner-header">
+                <div class="category-holder">
+                    <ul class="nav category-nav pull-left">
+                        <li class="nav-tag"><a href="/tag/exclusives/" title="Exclusive">Exclusive</a></li>
+                        <li class="nav-tag"><a href="/tag/news/" title="News">News</a></li>
+                        <li class="nav-tag"><a href="/tag/devices/" title="Devices">Devices</a></li>
+                        <li class="nav-tag"><a href="/tag/how-to/" title="How-To">How-To</a></li>
+                        <li class="nav-tag"><a href="/tag/technology/" title="Technology">Technology</a></li>
+                        <li class="nav-tag"><a href="/tag/apps/" title="Apps & Software">Apps & Software</a></li>
+                        <li>
+                            <a href="/categories">
+                                <span style="margin-left:0.5rem;">More...</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="search-btn no-decoration pull-right" href="#searchinghost-easy">
+                        <span style="color: white;">
+                            <i class="fas fa-search fa-lg"></i>
+                        </span>
+                    </a>
+                    <a class="category-search no-decoration category-xs" href="/categories">
+                        <span style="margin-right:1.5rem;"><i class="fas fa-bars fa-2x"></i></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+{{#contentFor "mapache_class_body"}}is-article is-video share-margin has-cover is-transparency{{/contentFor}}
+
+{{#post}}
+<div class="cc-video u-overflowHidden u-relative">
+    <div class="post-fluid u-container">
+        <div class="row">
+            <div class="col s12 l8 cc-video-left">
+                <div class="cc-video-cont">
+                    {{!-- Video Embed --}}
+                    <div class="cc-video-embed">
+                        <span class="cc-video-close button button--circle button--dark"><svg class="icon"><use xlink:href="#icon-close"></use></svg> </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l4 cc-video-right">
+                <div class="cc-video-header">
+                    {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom15"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
+                    <h1 class="cc-video-title u-md-fontSizeLarger u-fontSizeLarger u-lineHeightTight u-textColorWhite" style="margin-bottom: 32px;">{{title}}</h1>
+                    {{#if custom_excerpt}}<p class="cc-video-excerpt u-fontSizeBase u-paddingTop15">{{custom_excerpt}}</p>{{/if}}
+                    {{!-- Article Author - partials/article/article-author.hbs --}}
+            {{> "article/article-author"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/post}}
+
+<div class="post js-video-post extreme-container u-marginTop30 u-marginBottom40">
+    <div class="row">
+        {{#post}}
+        <div class="col col-left">
+
+
+            {{!-- Article Content - partials/article/article-body.hbs --}}
+            {{> "article/article-body"}}
+        </div>
+        {{/post}}
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+    
+    </div>
+</div>
+
+{{!-- Related Articles - partials/article/article-related.hbs --}}
+{{> "article/article-related"}}

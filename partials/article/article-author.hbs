@@ -1,0 +1,32 @@
+<div class="post-author u-flex u-flexCenter" style="padding-left: 0px;">
+    {{!-- Author Avatar --}}
+    {{#primary_author}}
+    <div class="u-flex0">
+        <a href="{{url}}" class="avatar-image avatar-image--smaller u-relative">
+            <img class="u-absolute u-image u-block u-round"
+                src="{{#if profile_image}}{{img_url profile_image size="xs"}}{{else}}{{asset "images/avatar.png"}}{{/if}}"
+                alt="{{t "Go to the profile of"}} {{name}}"
+            />
+        </a>
+    </div>
+    {{/primary_author}}
+
+    <div class="u-paddingLeft15 text-muted u-flex1 u-fontSize15 u-lineHeight1">
+
+
+
+        {{#primary_author}}
+        <div class="u-block u-paddingTop5">
+            {{!-- Authro Name --}}
+            <a href="{{url}}" class="link link--underline u-fontWeightMedium u-textColorlight" title="{{t "Posts by"}} {{name}}">{{name}}</a>
+            <div class="u-flexCenter u-block-before-md" style="padding-top: 5px;">
+            <time class="datetime" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+        </div>
+
+            {{!-- Author Social Media (Facebook - Twitter) --}}
+            {{#if facebook}}<a class="post-author-social u-inlineBlock c-facebook" href="{{facebook_url}}" title="Facebook" target="_blank" rel="noopener noreferrer"><svg class="icon icon--s top2"><use xlink:href="#icon-facebook"></use></svg></a>{{/if}}
+            {{#if twitter}}<a class="post-author-social u-inlineBlock c-twitter i-twitter" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="noopener noreferrer"><svg class="icon icon--s top2"><use xlink:href="#icon-twitter"></use></svg></a>{{/if}}
+        </div>
+        {{/primary_author}}
+    </div>
+</div>

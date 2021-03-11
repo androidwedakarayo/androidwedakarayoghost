@@ -1,0 +1,227 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+<header class="site-header outer border-primary-top">
+
+    <div class="inner-header">
+        <nav class="site-nav">
+            <div class="site-nav-left">
+                <a class="site-nav-logo" href="{{@site.url}}" aria-label="{{@site.title}}">
+                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+                </a>
+            </div>
+            <div class="inner-header">
+                <div class="category-holder">
+                    <ul class="nav category-nav pull-left">
+                        <li class="nav-tag"><a href="/tag/exclusives/" title="Exclusive">Exclusive</a></li>
+                        <li class="nav-tag"><a href="/tag/news/" title="News">News</a></li>
+                        <li class="nav-tag"><a href="/tag/devices/" title="Devices">Devices</a></li>
+                        <li class="nav-tag"><a href="/tag/how-to/" title="How-To">How-To</a></li>
+                        <li class="nav-tag"><a href="/tag/technology/" title="Technology">Technology</a></li>
+                        <li class="nav-tag"><a href="/tag/apps/" title="Apps & Software">Apps & Software</a></li>
+                        <li>
+                            <a href="/categories">
+                                <span style="margin-left:0.5rem;">More...</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="search-btn no-decoration pull-right" href="#searchinghost-easy">
+                        <span style="color: white;">
+                            <i class="fas fa-search fa-lg"></i>
+                        </span>
+                    </a>
+                    <a class="category-search no-decoration category-xs" href="/categories">
+                        <span style="margin-right:1.5rem;"><i class="fas fa-bars fa-2x"></i></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+
+
+{{!-- The main content area 
+<!-- Embla -->
+
+{{> slider}}
+--}}
+
+{{!--
+<div class="outer-search category-container">
+    <div class="inner-header">
+        <div class="category-holder">
+            <ul class="nav category-nav pull-left">
+                <li class="nav-tag"><a href="/tag/exlusive/" title="Exclusive">Exclusive</a></li>
+                <li class="nav-tag"><a href="/tag/news/" title="News">News</a></li>
+                <li class="nav-tag"><a href="/tag/devices/" title="Devices">Devices</a></li>
+                <li class="nav-tag"><a href="/tag/how-to/" title="How-To">How-To</a></li>
+                <li class="nav-tag"><a href="/tag/technology/" title="Technology">Technology</a></li>
+                <li class="nav-tag"><a href="/tag/apps/" title="Apps & Software">Apps & Software</a></li>
+                <li>
+                    <a href="/categories">
+                        <span style="margin-left:0.5rem;">More...</span>
+                    </a>
+                </li>
+            </ul>
+            <a class="search-btn no-decoration pull-right" href="#ghosteasybar">
+                <span style="color: white;">
+                    <i class="fas fa-search"></i>
+                </span>
+            </a>
+            <a class="category-search no-decoration category-xs" href="/categories">
+                <span style="margin-left:0.5rem;"><i class="fas fa-bars"></i> Categories</span>
+            </a>
+        </div>
+    </div>
+</div>
+--}}
+
+<main class="main u-relative ">
+
+        <div class="homeHero-container u-container u-relative">
+            <h1 style="color: white;margin-bottom: 0px;margin-top: 15px">Featured Articles</h1>
+        </div>
+
+
+    <section class="homeHero">
+        <div class="homeHero-container u-container u-relative">
+            {{#get "posts" filter="featured:true"}}
+            {{#if posts}}
+            {{#foreach posts limit="1"}}
+            <article class="homeHero-largeCard">
+                <a href="{{url}}" class="hhp-image">
+                    <div class="hhp-img u-bgColorGrayLight u-relative">
+                        {{#if feature_image}}
+                        <h1 class="hhp-title u-fontSizeLarge u-contentTitle">{{title}}</h1>
+                        <img class="u-image1 u-block u-absolute0"
+                            src="https://ik.imagekit.io/andwdlka{{img_url feature_image size="s"}}"
+                            srcset="https://ik.imagekit.io/andwdlka{{img_url feature_image size="s"}} 300w,https://ik.imagekit.io/andwdlka{{img_url feature_image size="m"}} 600w"
+                            alt="{{title}}">
+                        {{/if}}
+                    </div>
+                </a>
+            </article>
+            {{/foreach}}
+            {{/if}}
+            {{/get}}
+
+
+
+
+            <div class="homeHero-smallCardWrap u-flexColumnTop">
+
+                {{#get "posts" filter="featured:true"}}
+                {{#if posts}}
+                {{#foreach posts from="2" to="4"}}
+                <article class="homeHero-smallCard u-relative u-flex">
+                    <div class="hhp-smallCard-img u-bgColorGrayLight u-relative u-flex0">
+                        {{#if feature_image}}
+                        <img class="u-image u-block u-absolute0"
+                            src="https://ik.imagekit.io/andwdlka{{img_url feature_image size="s"}}" alt="{{title}}">
+                        {{/if}}
+                    </div>
+
+                    <div class="hhp-smallCard-body u-flexColumnContentCenter">
+                        <div class="hhp-titleWrap">
+                            <h2 class="hhp-smallCard-title u-contentTitle">
+                                <a href="{{url}}" style="color: white;">
+                                    {{title}}
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <a href="{{url}}" class="u-absolute0 zindex2" aria-label="{{title}}"></a>
+                </article>
+                {{/foreach}}
+                {{/if}}
+                {{/get}}
+            </div>
+
+
+
+        </div>
+    </section>
+
+</main>
+
+
+<div class="inner posts">
+
+    <div class="post-feed">
+        {{#foreach posts}}
+
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+
+        {{/foreach}}
+    </div>
+
+</div>
+
+</main>
+
+{{> site-header}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+
+    // NOTE: Scroll performance is poor in Safari
+    // - this appears to be due to the events firing much more slowly in Safari.
+    //   Dropping the scroll event and using only a raf loop results in smoother
+    //   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+
+        var nav = document.querySelector('.site-nav-main .site-nav');
+        var feed = document.querySelector('.post-feed');
+
+        var lastScrollY = window.scrollY;
+        var lastWindowHeight = window.innerHeight;
+        var lastDocumentHeight = $(document).height();
+        var ticking = false;
+
+        function onScroll() {
+            lastScrollY = window.scrollY;
+            requestTick();
+        }
+
+        function onResize() {
+            lastWindowHeight = window.innerHeight;
+            lastDocumentHeight = $(document).height();
+            requestTick();
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(update);
+            }
+            ticking = true;
+        }
+
+        function update() {
+            var trigger = feed.getBoundingClientRect().top + window.scrollY;
+            var progressMax = lastDocumentHeight - lastWindowHeight;
+
+            // show/hide nav
+            if (lastScrollY >= trigger - 20) {
+                nav.classList.add('fixed-nav-active');
+            } else {
+                nav.classList.remove('fixed-nav-active');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize, false);
+
+        update();
+
+    });
+</script>
+{{/contentFor}}
