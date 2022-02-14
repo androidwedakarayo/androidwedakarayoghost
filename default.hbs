@@ -251,7 +251,7 @@
         src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-backpack.js"></script>
     <script>
         new SearchinGhostEasy({
-            contentApiKey: 'fdaf9fe0b5f7ca25d9a57d44b9',
+            contentApiKey: '{{API_KEY}}',
             searchinghostOptions: {
                 postsFields: ['title', 'url', 'published_at', 'feature_image'],
                 postsExtraFields: ['tags'],
@@ -259,7 +259,7 @@
                 indexedFields: ['title', 'string_tags'],
                 template: function (post) {
                     var o = `<a href="${post.url}">`
-                    if (post.feature_image) o += `<img src="https://res.cloudinary.com/androidwedakarayo/image/fetch/w_281,h_160,c_fit,f_auto/${post.feature_image}?tr=h-160,w-281">`
+                    if (post.feature_image) o += `<img src="https://res.cloudinary.com/{{CLOUDINERY_USERNAME}}/image/fetch/w_281,h_160,c_fit,f_auto/${post.feature_image}?tr=h-160,w-281">`
                     o += '<section>'
                     if (post.tags.length > 0) {
                         o += `<header>
